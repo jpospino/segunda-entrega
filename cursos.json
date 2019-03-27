@@ -1,0 +1,55 @@
+[
+ {
+  "id": "6",
+  "nombre": "Matematicas",
+  "descripcion": "curso de matrematicas",
+  "valor": 1233,
+  "disponible": true,
+  "modalidad": "virtual",
+  "intensidadHoraria": "1222"
+ },
+ {
+  "id": "1",
+  "nombre": "Matematicas",
+  "descripcion": "curso de matrematicas",
+  "valor": 1,
+  "disponible": true,
+  "modalidad": "virtual",
+  "intensidadHoraria": "10000"
+ },
+ {
+  "id": "7",
+  "nombre": "Matematicas",
+  "descripcion": "curso de matrematicas",
+  "valor": 1,
+  "disponible": true,
+  "modalidad": "presencial",
+  "intensidadHoraria": ""
+ },
+ {
+  "id": "3",
+  "nombre": "Programacion",
+  "descripcion": "este es un curso de programación",
+  "valor": 1000,
+  "disponible": true,
+  "modalidad": "virtual",
+  "intensidadHoraria": "0"
+ },
+ {
+  "id": "77",
+  "nombre": "Matematicas",
+  "descripcion": "asdasd",
+  "valor": 2333,
+  "disponible": true,
+  "intensidadHoraria": ""
+ },
+ {
+  "id": "5",
+  "nombre": "ingles",
+  "descripcion": "lkaksdjalsdj",
+  "valor": 912,
+  "disponible": true,
+  "modalidad": "-",
+  "intensidadHoraria": ""
+ }
+]
