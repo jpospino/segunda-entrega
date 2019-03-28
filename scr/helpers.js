@@ -92,7 +92,7 @@ hbs.registerHelper('inscritosCursos', () => {
                       +  'Nombre del curso: ' + curso.nombre
                       +  '</button>'
                       +  'Valor del Curso:' + curso.valor
-                      +  '<form action="/inscribir" method="patch" ><input type="hidden"  name="idCurso" value="' + curso.id + '"/><input type="submit" value="Terminar"></form>'
+                      +  '<form action="/verInscritos" method="post" ><input type="hidden"  name="idCurso" value="' + curso.id + '"/><input type="submit" value="Terminar"></form>'
                       +  '</h5>'
                       +  '</div>'
                       +  '<div id="collapse' + curso.id + '" class="collapse" aria-labelledby="heading' + curso.id + '" data-parent="#accordion">'

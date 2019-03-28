@@ -26,6 +26,11 @@ app.use(bodyParser.urlencoded({extended : true}));
 
 app.set('view engine', 'hbs');
 
+app.get('',(req, res) => {
+    res.render('verInscritos', {
+        titulo : 'Listado de estudiantes inscritos'
+    });
+});
 app.get('/cursos', (req, res) => {
     res.render('crearCursos', {
         titulo : 'Crear nuevo curso'
@@ -54,7 +59,7 @@ app.post('/cursos', (req, res) => {
 });
 
 app.get('/inscribir', (req, res) => {
-    res.render('inscribir');
+    res.render('inscribir', {titulo : 'Inscribir estudiante a curso'});
 });
 
 app.post('/inscribir', (req, res) => {
@@ -65,13 +70,18 @@ app.post('/inscribir', (req, res) => {
         });
     } else {
         funciones.inscribirEstudiante(req.body.documento, req.body.email, req.body.nombre, req.body.telefono, req.body.idCurso);
-        res.render('inscribir');
+        res.render('inscribir', {titulo : 'Inscribir estudiante a curso'});
     }
 });
 
-app.patch('/inscribir',(req, res) => {    
+app.get('/verInscritos', (req, res) => {
+    res.render('verInscritos', {titulo : 'Listado de estudiantes inscritos'});
+});
+
+app.post('/verInscritos',(req, res) => {   
     funciones.terminarCurso(req.body.idCurso);
-    res.render('inscribir');
+
+    res.render('verInscritos');
 });
 
 app.listen(3000, ()=> {

@@ -62,5 +62,26 @@
       "telefono": "7689767",
       "idCurso": "3"
    },
-   {}
+   {},
+   {
+      "documento": "84459201",
+      "email": "jp.ospino@gmail.com",
+      "nombre": "Juan Pablo Ospino Solano",
+      "telefono": "3008374381",
+      "idCurso": "1"
+   },
+   {
+      "documento": "19902734",
+      "email": "corre@gmail.com",
+      "nombre": "rodrigo rodriguez",
+      "telefono": "32987439237",
+      "idCurso": "3"
+   },
+   {
+      "documento": "123456",
+      "email": "pepe@gmail.com",
+      "nombre": "pepe",
+      "telefono": "129873192",
+      "idCurso": "2"
+   }
 ]
