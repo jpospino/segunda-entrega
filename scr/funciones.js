@@ -1,10 +1,10 @@
 const fs = require('fs');
 
 let cursos = []
+let estudiantesCursos = [];
 
-let inscribirCurso = (id, nombre, descripcion, valor, modalidad, intensidadHoraria) => {
+let crearCurso = (id, nombre, descripcion, valor, modalidad, intensidadHoraria) => {
     listarCursos();
-
     let cursoEncontrado = cursos.find(curso => curso.id == id);
 
     if(!cursoEncontrado){
@@ -13,12 +13,12 @@ let inscribirCurso = (id, nombre, descripcion, valor, modalidad, intensidadHorar
             'nombre' : nombre,
             'descripcion' : descripcion,
             'valor' : valor,
-            'disponible' : true,
+            'estado' : true,
             'modalidad' : modalidad,
             'intensidadHoraria': intensidadHoraria
         });
 
-        guardar();
+        guardarCursos();
     } else {
         console.log('el id ya está duplicado.')
     }
@@ -32,13 +32,26 @@ let listarCursos = () =>{
     }
 }
 
+let listarEstudiantesCursos = () => {
+    try {
+        estudiantesCursos = require('../estudiantesCursos.json');
+    } catch(err) {
+        estudiantesCursos = [];
+    }
+}
+
 let cursosCreados = () => {
     listarCursos();
     return cursos;
 };
 
-let guardar = () => {
-    let datos = JSON.stringify(cursos,null, 1);
+let estudiantesCursosLista = () => {
+    listarEstudiantesCursos();
+    return estudiantesCursos;
+};
+
+let guardarCursos = () => {
+    let datos = JSON.stringify(cursos,null, 3);
 
     fs.writeFile('./cursos.json', datos, (err) => {
         if(err) {
@@ -48,9 +61,19 @@ let guardar = () => {
     });
 };
 
+let guardarEstudiantesCursos = () => {
+    let datos = JSON.stringify(estudiantesCursos,null, 3);
+
+    fs.writeFile('./estudiantesCursos.json', datos, (err) => {
+        if(err) {
+            throw err;
+        }
+        console.log('Archivo creado con éxito'); 
+    });
+};
+
 let validarCursoExistente = (id) => {
     listarCursos();
-
     let cursoExistente = cursos.find(curso => curso.id == id);
     if(!cursoExistente)
         return false;
@@ -58,8 +81,49 @@ let validarCursoExistente = (id) => {
         return true;
 };
 
+let valiarEstudianteInscrito = (idCurso, documento) => {
+    listarEstudiantesCursos();
+    if(estudiantesCursos.find(item => item.idCurso == idCurso && item.documento == documento)){
+        return true;
+    } else {
+        return false;
+    }
+};
+
+let inscribirEstudiante = (documento, email, nombre, telefono, idCurso) => {
+    listarEstudiantesCursos();
+
+    let inscripcionEncontrada = estudiantesCursos.find(inscripcion => inscripcion.idCurso == idCurso && inscripcion.documento == documento);
+
+    if(!inscripcionEncontrada){
+        estudiantesCursos.push({
+            'documento' : documento, 
+            'email' : email, 
+            'nombre' : nombre, 
+            'telefono' : telefono, 
+            'idCurso' : idCurso
+        });
+
+        guardarEstudiantesCursos();
+    } else {
+        console.log('el estudiante ya está inscrito.')
+    }
+};  
+
+let terminarCurso = (idCurso) => {
+    listarCursos();
+
+    let cursoTerminar = cursos.find(item => item.id == idCurso);
+    cursoTerminar.estado = false;
+    guardarCursos();
+};
+
 module.exports = {
-    inscribirCurso,
+    crearCurso,
     cursosCreados,
-    validarCursoExistente
+    validarCursoExistente,
+    valiarEstudianteInscrito,
+    inscribirEstudiante,
+    estudiantesCursosLista,
+    terminarCurso
 };

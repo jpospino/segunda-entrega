@@ -1,55 +1,101 @@
 [
- {
-  "id": "6",
-  "nombre": "Matematicas",
-  "descripcion": "curso de matrematicas",
-  "valor": 1233,
-  "disponible": true,
-  "modalidad": "virtual",
-  "intensidadHoraria": "1222"
- },
- {
-  "id": "1",
-  "nombre": "Matematicas",
-  "descripcion": "curso de matrematicas",
-  "valor": 1,
-  "disponible": true,
-  "modalidad": "virtual",
-  "intensidadHoraria": "10000"
- },
- {
-  "id": "7",
-  "nombre": "Matematicas",
-  "descripcion": "curso de matrematicas",
-  "valor": 1,
-  "disponible": true,
-  "modalidad": "presencial",
-  "intensidadHoraria": ""
- },
- {
-  "id": "3",
-  "nombre": "Programacion",
-  "descripcion": "este es un curso de programación",
-  "valor": 1000,
-  "disponible": true,
-  "modalidad": "virtual",
-  "intensidadHoraria": "0"
- },
- {
-  "id": "77",
-  "nombre": "Matematicas",
-  "descripcion": "asdasd",
-  "valor": 2333,
-  "disponible": true,
-  "intensidadHoraria": ""
- },
- {
-  "id": "5",
-  "nombre": "ingles",
-  "descripcion": "lkaksdjalsdj",
-  "valor": 912,
-  "disponible": true,
-  "modalidad": "-",
-  "intensidadHoraria": ""
- }
+   {
+      "id": "1",
+      "nombre": "Matematicas",
+      "descripcion": "Curso de matematicas para ingenieros",
+      "valor": 1000,
+      "estado": true,
+      "modalidad": "presencial",
+      "intensidadHoraria": "2"
+   },
+   {
+      "id": "2",
+      "nombre": "Ingles",
+      "descripcion": "Curso de ingles para ingenieros",
+      "valor": 530,
+      "estado": true,
+      "modalidad": "virtual",
+      "intensidadHoraria": "1"
+   },
+   {
+      "id": "3",
+      "nombre": "Programacion",
+      "descripcion": "Curso de programación para médicos",
+      "valor": 1547,
+      "estado": true,
+      "modalidad": "virtual",
+      "intensidadHoraria": "4"
+   },
+   {
+      "id": "4",
+      "nombre": "Introducción",
+      "descripcion": "Curso de introducción para médicos",
+      "valor": 2000,
+      "estado": true,
+      "modalidad": "virtual",
+      "intensidadHoraria": "2"
+   },
+   {
+      "id": "6",
+      "nombre": "Automatización",
+      "descripcion": "curso de automatización para automatizadores",
+      "valor": 500,
+      "estado": true,
+      "modalidad": "-",
+      "intensidadHoraria": "3"
+   },
+   {
+      "id": "7",
+      "nombre": "Probabilidad",
+      "descripcion": "curso de probabilidad para ingenieros",
+      "valor": 300,
+      "estado": true,
+      "modalidad": "-",
+      "intensidadHoraria": ""
+   },
+   {
+      "id": "10",
+      "nombre": "Circuitos",
+      "descripcion": "circuitos para ingenieros",
+      "valor": 400,
+      "estado": true,
+      "modalidad": "-",
+      "intensidadHoraria": ""
+   },
+   {
+      "id": "11",
+      "nombre": "Biología",
+      "descripcion": "clase de biología",
+      "valor": 999,
+      "estado": true,
+      "modalidad": "-",
+      "intensidadHoraria": ""
+   },
+   {
+      "id": "12",
+      "nombre": "Pintura",
+      "descripcion": "Pintura rupestre",
+      "valor": 400,
+      "estado": true,
+      "modalidad": "-",
+      "intensidadHoraria": ""
+   },
+   {
+      "id": "14",
+      "nombre": "AWS",
+      "descripcion": "Inrtroducción a AWS",
+      "valor": 500,
+      "estado": true,
+      "modalidad": "-",
+      "intensidadHoraria": ""
+   },
+   {
+      "id": "23",
+      "nombre": "pliometria",
+      "descripcion": "prueba de urso",
+      "valor": 1000,
+      "estado": true,
+      "modalidad": "-",
+      "intensidadHoraria": ""
+   }
 ]

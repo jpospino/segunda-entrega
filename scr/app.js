@@ -26,28 +26,52 @@ app.use(bodyParser.urlencoded({extended : true}));
 
 app.set('view engine', 'hbs');
 
-app.get('/crear', (req, res) => {
-    res.render('crear');
+app.get('/cursos', (req, res) => {
+    res.render('crearCursos', {
+        titulo : 'Crear nuevo curso'
+    });
 });
 
-app.post('/crear', (req, res) => {
-    console.log(req.body);
-    
+app.post('/cursos', (req, res) => {
     let cursoExistente = funciones.validarCursoExistente(req.body.id);
 
     if(cursoExistente){
-        res.render('cursoExistente');
+        res.render('error', {
+            titulo : 'Error al crear el curso',
+            mensajeError : 'El curso identificado con ese ID ya existe. Por favor, verificar los datos.'
+        });
     }
     else  {
-        funciones.inscribirCurso(req.body.id, 
+        funciones.crearCurso(req.body.id, 
                             req.body.nombre, 
                             req.body.descripcion, 
                             parseInt(req.body.valor),
                             (req.body.modalidad === undefined)? '-' : req.body.modalidad,
                             req.body.intensidadHoraria);
 
-        res.render('cursos');
+        res.render('listarCursos');
     }
+});
+
+app.get('/inscribir', (req, res) => {
+    res.render('inscribir');
+});
+
+app.post('/inscribir', (req, res) => {
+     if(funciones.valiarEstudianteInscrito(req.body.idCurso, req.body.documento)){
+        res.render('error', {
+            titulo : 'Error al inscribir el estudiante',
+            mensajeError : 'El estudiante ya está inscrito al curso seleccionado. Por favor validar nuevamente la inscripción.'
+        });
+    } else {
+        funciones.inscribirEstudiante(req.body.documento, req.body.email, req.body.nombre, req.body.telefono, req.body.idCurso);
+        res.render('inscribir');
+    }
+});
+
+app.patch('/inscribir',(req, res) => {    
+    funciones.terminarCurso(req.body.idCurso);
+    res.render('inscribir');
 });
 
 app.listen(3000, ()=> {
